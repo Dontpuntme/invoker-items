@@ -1,7 +1,22 @@
 .App {
   text-align: center;
+  background-color: #16160e;
+  background-image: url("../public/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
 }
+#hero {
+  background-color: grey;
+  border-radius: 25px;
+  height: 50px;
+  width: 500px;
 
+}
+p {
+  position: absolute;
+  top: 0;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +29,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +37,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 16px;
 }
 
 .App-link {
