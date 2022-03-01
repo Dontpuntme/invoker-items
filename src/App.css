@@ -1,10 +1,21 @@
 .App {
+  min-height: 100vh;
   text-align: center;
   background-color: #16160e;
   background-image: url("../public/background.jpg");
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
+  display: block;
+}
+.Heroes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  gap: 16px;
 }
 #hero {
   background-color: grey;
@@ -12,14 +23,6 @@
   height: 50px;
   width: 500px;
 
-}
-p {
-  position: absolute;
-  top: 0;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,8 +32,6 @@ p {
 }
 
 .App-header {
-  
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +39,7 @@ p {
   font-size: calc(10px + 2vmin);
   color: white;
   gap: 16px;
+  height: 100px;
 }
 
 .App-link {
