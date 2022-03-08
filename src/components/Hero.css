@@ -1,0 +1,28 @@
+.hero {
+  background-color: grey;
+  border-radius: 25px;
+  height: 50px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.Heroes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  gap: 16px;
+}
+
+.heroButton {
+  width: 100px;
+}
+.deleteButton {
+  width: 50px;
+
+  display: block;
+}

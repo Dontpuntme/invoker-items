@@ -1,18 +1,35 @@
-import Button from 'react-bootstrap/Button';
-import $ from 'jquery';
+import Button from "react-bootstrap/Button";
+import $ from "jquery";
+import SearchBar from './SearchBar';
+import "./Hero.css"
+// constructor(props) {
+//   super(props);
+//   this.state = {
+//     items: [],
+//     isLoaded: false,
+//   }
+// }
 function heroList() {
-  $.getJSON('https://api.opendota.com/api/heroes')
-    .then(({ results }) => {
-    var json = {results};
-    console.log(results[0].id);});
+  fetch("https://api.opendota.com/api/heroes")
+    .then((res) => res.json())
+    .then((json) => {
+      return json;
+    });
+
+  fetch("http://cdn.dota2.com/apps/dota2/images/heroes/")
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json);
+    });
 }
 function Hero() {
   return (
-    <div id = "hero">Hero<Button style= {{width: "50px"}} variant = "danger" onClick={heroList}>X</Button></div>
-
+    <div className="hero">
+      <p></p>
+      <SearchBar placeholder="Enter a hero name..." data={heroList}></SearchBar>
+      <Button className ="deleteButton" variant="danger" onClick={heroList}>X</Button>
+    </div>
   );
 }
-
-
 
 export default Hero;

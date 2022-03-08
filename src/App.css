@@ -9,25 +9,6 @@
   background-position: center;
   display: block;
 }
-.Heroes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  gap: 16px;
-}
-#hero {
-  background-color: grey;
-  border-radius: 25px;
-  height: 50px;
-  width: 500px;
-
-}
-#heroButton {
-  width: 100px;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
