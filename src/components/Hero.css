@@ -21,6 +21,11 @@
 .heroButton {
   width: 100px;
 }
+.heroImage {
+  display: block;
+  object-fit: contain;
+  height: 40px;
+}
 #deleteButton {
   width: 50px;
   display:none;
