@@ -1,5 +1,6 @@
 .search input {
   background-color: white;
+  color: gray;
   border: 0;
   border-radius: 2px;
   border-top-right-radius: 0px;
@@ -48,7 +49,7 @@ input:focus {
   height: 50px;
   display: flex;
   align-items: center;
-  color: red;
+  color: black;
 }
 .dataItem p {
   margin-left: 10px;
@@ -57,9 +58,16 @@ input:focus {
 a {
   text-decoration: none;
 }
-a:hover {
+.dataItem:hover {
   background-color: lightgrey;
+  cursor: pointer;
 }
 #clearBtn {
   cursor: pointer;
+}
+.searchBarImg {
+  display: block;
+  object-fit: contain;
+  height: 50px;
+  padding-right: 20px;
 }
