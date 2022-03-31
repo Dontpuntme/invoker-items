@@ -31,6 +31,7 @@ input:focus {
 }
 
 .dataResult {
+  font-size: calc(5px + 2vmin);
   margin-top: 5px;
   width: 300px;
   height: 200px;

@@ -1,0 +1,9 @@
+.Container {
+    justify-content: center;
+    display: "inline-block";
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.lineOne {
+    display: flex;
+}

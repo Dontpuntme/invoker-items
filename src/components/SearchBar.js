@@ -11,21 +11,34 @@ function SearchBar({ placeholder, data, passHeroData, style, passUrlData }) {
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.localized_name
+
+    const filteredNames = data.filter((value) => {
+      let name = value.localized_name
+      return name
         .toLowerCase()
-        .includes(searchWord.toLowerCase());
+        .includes(searchWord.toLowerCase())
+        &&
+        !name
+        .toLowerCase()
+        .includes("recipe")
+        &&
+        !name
+        .toLowerCase()
+        .includes("river");
     });
+
     if (searchWord === "") {
       setFilteredData([]);
     } else {
-      setFilteredData(newFilter);
+      setFilteredData(filteredNames);
     }
   };
+
   const clearInput = () => {
     setFilteredData([]);
     setWordEntered("");
   };
+
   const handleSelectHero = (event) => {
     setSearchFocused(true)
     if (

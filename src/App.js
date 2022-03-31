@@ -1,5 +1,6 @@
 import "./App.css";
 import Hero from "./components/Hero";
+import AdminPage from "./components/AdminPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <header className="App-header"></header>
         <Switch>
         <Route path="/admin">
-            <h1>Hi I'm admin</h1>
+            <AdminPage></AdminPage>
           </Route>
           <Route path="/">
             <div className="Heroes">
