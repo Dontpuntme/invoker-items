@@ -3,6 +3,10 @@ import Item from "./Item";
 import Button from "react-bootstrap/Button";
 import "./AdminPage.css";
 
+const addCounter = () => {
+  fetch('localhost')
+}
+
 function AdminPage() {
   return (
     <div className="Container" style={{display: "inline-block",}}>

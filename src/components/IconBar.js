@@ -6,13 +6,7 @@ import React, { useState } from "react";
 function IconBar({data, placeholder}) {
   const [entityFilled, setEntity] = useState("");
   const [entityUrl, setUrl] =  useState("");
-  const heroList = () => {
-    fetch("https://api.opendota.com/api/heroes")
-      .then((res) => res.json())
-      .then((json) => {
-        return json;
-      });
-  };
+  
   const clearEntity = () => {
     setEntity('');
   }
