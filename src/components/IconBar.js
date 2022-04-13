@@ -3,7 +3,11 @@ import SearchBar from "./SearchBar";
 import "./Hero.css";
 import React, { useState } from "react";
 
-function IconBar({data, placeholder, setEntity, entity, clearEntity}) {
+function IconBar({data, placeholder, setEntity, entity= {
+  localized_name: "",
+  url_full_portrait: "",
+  id: "",
+}, clearEntity}) {
 
   
   return (

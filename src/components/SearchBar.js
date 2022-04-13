@@ -45,8 +45,8 @@ function SearchBar({ placeholder, data, passSelection, style }) {
   };
   const eventClicked = (event) => {
 
-    console.log("clicked!")
-    console.log(event.target.getAttribute("value"));
+    
+    console.log("Selected Hero!");
     const value = event.target.getAttribute("value")
     passSelection(JSON.parse(value));
   }

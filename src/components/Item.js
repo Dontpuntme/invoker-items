@@ -2,8 +2,19 @@ import React from "react";
 import Items from "../resources/itemImages.json";
 import IconBar from "./IconBar";
 
-function Hero () {
-    return (<IconBar data = {Items} placeholder = "Enter an item name..." ></IconBar>);
+function Item({ setEntity, entity, clearEntity }) {
+  return (
+    <div>
+      <IconBar
+        data={Items}
+        placeholder="Enter a item name..."
+        setEntity={setEntity}
+        entity={entity}
+        clearEntity={clearEntity}
+      ></IconBar>
+      <p>test {entity.id}</p>
+    </div>
+  );
 }
 
-export default Hero;
+export default Item;
