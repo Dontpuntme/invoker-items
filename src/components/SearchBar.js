@@ -3,7 +3,7 @@ import "./SearchBar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 
-function SearchBar({ placeholder, data, passHeroData, style, passUrlData }) {
+function SearchBar({ placeholder, data, passSelection, style }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const [isFocused, setSearchFocused] = useState(false);
@@ -13,18 +13,14 @@ function SearchBar({ placeholder, data, passHeroData, style, passUrlData }) {
     setWordEntered(searchWord);
 
     const filteredNames = data.filter((value) => {
-      let name = value.localized_name
-      return name
-        .toLowerCase()
-        .includes(searchWord.toLowerCase())
-        &&
-        !name
-        .toLowerCase()
-        .includes("recipe")
-        &&
-        !name
-        .toLowerCase()
-        .includes("river");
+      let name = value.localized_name;
+
+      //Return name filtering out river, recipe, and including the search word.
+      return (
+        name.toLowerCase().includes(searchWord.toLowerCase()) &&
+        !name.toLowerCase().includes("recipe") &&
+        !name.toLowerCase().includes("river")
+      );
     });
 
     if (searchWord === "") {
@@ -39,41 +35,36 @@ function SearchBar({ placeholder, data, passHeroData, style, passUrlData }) {
     setWordEntered("");
   };
 
-  const handleSelectHero = (event) => {
-    setSearchFocused(true)
-    if (
-      (filteredData.length !== 0) &
-      (event.key === "Enter" || event.type === "click")
-    ) {
-      console.log();
-      const name = event.target.getAttribute("value");
-      const url = event.target.getAttribute("url");
-      const firstHero =
-        event.type === "click"
-          ? name
-          : filteredData[0].localized_name;
-      const firstImage =
-        event.type === "click"
-          ? url
-          : filteredData[0].url_full_portrait;
-      passHeroData(firstHero);
-      passUrlData(firstImage);
+  const handleEnter = (event) => {
+    setSearchFocused(true);
+    if ((filteredData.length !== 0) & (event.key === "Enter")) {
+      console.log("Entered!")
+      const selection = filteredData[0];
+      passSelection(selection);
     }
   };
-  const clearFocus = (event) => {
-    setSearchFocused(false)
+  const eventClicked = (event) => {
+
+    console.log("clicked!")
+    console.log(event.target.getAttribute("value"));
+    const value = event.target.getAttribute("value")
+    passSelection(JSON.parse(value));
   }
+
+  const clearFocus = (event) => {
+    // setSearchFocused(false);
+  };
   return (
     <div className="search" style={style}>
       <div className="searchInputs">
         <input
-          onFocus = {() =>setSearchFocused(true)}
+          onFocus={() => setSearchFocused(true)}
           type="text"
           value={wordEntered}
           placeholder={placeholder}
           onChange={handleFilter}
-          onKeyDown={handleSelectHero}
-          onBlur = {clearFocus}
+          onKeyDown={handleEnter}
+          onBlur={clearFocus}
         ></input>
         <div className="searchIcon">
           {filteredData.length === 0 ? (
@@ -83,27 +74,28 @@ function SearchBar({ placeholder, data, passHeroData, style, passUrlData }) {
           )}
         </div>
       </div>
-      {filteredData.length !== 0 && isFocused &&  (
+      {filteredData.length !== 0 && isFocused && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
               <div
                 className="dataItem"
-                value={value.localized_name}
-                url = {value.url_full_portrait}
+                value={ JSON.stringify(value) }
                 key={value.localized_name}
-                onClick={handleSelectHero}
-                onMouseDown={(event)=>event.preventDefault()}
+                onClick={eventClicked}
+                onMouseDown={(event) => event.preventDefault()}
               >
-                <img value={value.localized_name}
-                url = {value.url_full_portrait} className = "searchBarImg" src = {value.url_full_portrait}></img>
-                {" "}
+                <img
+                  value={ JSON.stringify(value)  }
+                  className="searchBarImg"
+                  src={value.url_full_portrait}
+                ></img>{" "}
                 {value.localized_name}{" "}
               </div>
             );
           })}
         </div>
-      ) }
+      )}
     </div>
   );
 }

@@ -3,26 +3,21 @@ import SearchBar from "./SearchBar";
 import "./Hero.css";
 import React, { useState } from "react";
 
-function IconBar({data, placeholder}) {
-  const [entityFilled, setEntity] = useState("");
-  const [entityUrl, setUrl] =  useState("");
+function IconBar({data, placeholder, setEntity, entity, clearEntity}) {
+
   
-  const clearEntity = () => {
-    setEntity('');
-  }
   return (
     <div className="hero">
-      <p >{entityFilled}</p>
-      <img className = "heroImage" src={entityUrl} style={{ display: entityFilled.length !== 0 ? "block" : "none" }}></img>
+      <p >{entity.localized_name}</p>
+      <img className = "heroImage" src={entity.url_full_portrait} style={{ display: entity.localized_name.length !== 0 ? "block" : "none" }}></img>
       <SearchBar
-        style={{ display: entityFilled.length !== 0 ? "none" : "block" }}
+        style={{ display: entity.localized_name.length !== 0 ? "none" : "block" }}
         placeholder={placeholder}
         data={data}
-        passHeroData={setEntity}
-        passUrlData={setUrl}
+        passSelection={setEntity}
       ></SearchBar>
       <Button
-        style={{ display: entityFilled.length !== 0 ? "block" : "none" }}
+        style={{ display: entity.localized_name.length !== 0 ? "block" : "none" }}
         id="deleteButton"
         variant="danger"
         onClick={clearEntity}

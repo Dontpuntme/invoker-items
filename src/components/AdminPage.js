@@ -3,8 +3,10 @@ import Item from "./Item";
 import Button from "react-bootstrap/Button";
 import "./AdminPage.css";
 
-const addCounter = () => {
-  fetch('localhost')
+const addCounter = (heroid, itemid) => {
+  console.log(heroid)
+  console.log(itemid)
+  fetch("http://localhost:3000/addCounter?HeroID="+heroid+"&ItemID="+itemid)
 }
 
 function AdminPage() {
@@ -14,8 +16,8 @@ function AdminPage() {
         <Item></Item>
       <div className="lineOne">
         
-        <Button class="btn btn-outline-success">+ Add Item To Counters</Button>
-        <Button class="btn btn-outline-success">+ Add Item To Suggested</Button>
+        <Button variant="outline-success" onClick={addCounter} >+ Add Item To Counters</Button>
+        <Button variant="outline-success">+ Add Item To Suggested</Button>
       </div>
     </div>
   );
