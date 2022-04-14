@@ -12,7 +12,6 @@ function Item({ setEntity, entity, clearEntity }) {
         entity={entity}
         clearEntity={clearEntity}
       ></IconBar>
-      <p>test {entity.id}</p>
     </div>
   );
 }

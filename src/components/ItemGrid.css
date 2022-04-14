@@ -1,0 +1,10 @@
+.Item-Container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px 80px;
+  place-items: center;
+  justify-content: center;
+}
+.Center-Test {
+  text-align: center;
+}
