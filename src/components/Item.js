@@ -4,7 +4,7 @@ import IconBar from "./IconBar";
 
 function Item({ setEntity, entity, clearEntity }) {
   return (
-    <div>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
       <IconBar
         data={Items}
         placeholder="Enter a item name..."

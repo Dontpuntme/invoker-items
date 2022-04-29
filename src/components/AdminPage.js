@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Item from "./Item";
 import Button from "react-bootstrap/Button";
 import "./AdminPage.css";
+import ItemGrid from "./ItemGrid";
 
 
 
@@ -50,6 +51,10 @@ function AdminPage() {
         
         <Button variant="outline-success" onClick={addCounter} >+ Add Item To Counters</Button>
         <Button variant="outline-success"onClick={addSuggested}>+ Add Item To Suggested</Button>
+      </div>
+      <div className="itemGrids">
+        <ItemGrid></ItemGrid>
+        <ItemGrid></ItemGrid>
       </div>
     </div>
   );

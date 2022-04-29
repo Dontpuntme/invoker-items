@@ -9,7 +9,7 @@ function Hero({setEntity, entity = {
 }, clearEntity}) {
   
   return (
-    <div>
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
       <IconBar
         data={Heroes}
         placeholder="Enter a hero name..."
